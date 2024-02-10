@@ -1,9 +1,10 @@
 from tkinter import *
-from visualizacion import Ventana
+#from visualizacion import Ventana
 from ventanas import ventana1, calcular_superf_limpiar
 
 root = Tk()
-root.geometry("560x690")
+root.geometry("600x400")
+root.title('Programa Roomba')
 
 zona1 = (500, 150)  # largo, ancho
 zona2 = (480, 101)

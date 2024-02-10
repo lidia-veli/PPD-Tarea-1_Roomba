@@ -12,9 +12,9 @@ def ventana1(root, zonas, superficie):
     h1.config(font=15)
 
     # widget texto
-    p1 = Label(root, text=f"La habitación que quiere limpiar tiene {superficie} metros cuadrados de superficie accesible por Roomba.")
-    p1.pack(pady=20)
-    p1.config(font=15)
+    p1 = Label(root, text=f"La habitación que quiere limpiar tiene {superficie} metros cuadrados \nde superficie accesible por Roomba.")
+    p1.pack(pady=15)
+    p1.config(font=5)
 
     # widget boton
     boton = Button(root, text="Ver habitación", command= lambda: ventana2(root, zonas, superficie))
@@ -38,17 +38,21 @@ def calcular_superf_limpiar(zonas):
 def ventana2(root, zonas, superficie):
 
     vent2 = Toplevel(root)
-    vent2.geometry("560x690")
+    vent2.title('Visualización Habitación')
+    vent2.geometry("600x800")
 
-    # widget texto
-    p1 = Label(vent2, text="Habitación")
-    p1.pack(pady=20)
-    p1.config(font=10)
+    # widget canvas
+    c = Canvas(master=vent2, width=500, height=630)
+    c.pack()
+    # zonas
+    c.create_rectangle(0, 0, 500, 150, fill='light green', outline='black')
+    c.create_rectangle(0, 150, 101, 630, fill='light blue', outline='black')
+    c.create_rectangle(191, 150, 500, 630, fill='wheat', outline='black')
+    c.create_rectangle(101, 410, 191, 630, fill='plum', outline='black')
 
     # widget boton
     boton = Button(vent2, text="Limpiar", command= lambda: ventana3(root, superficie))
-
-    boton.pack(pady=15)
+    boton.pack(pady=5)
 
 
 
@@ -58,20 +62,23 @@ def calcular_tiempo_limpieza(superficie):
     velocidad = 0.0167  # m^2/s
     # calculamos el tiempo de limpieza
     tiempo = superficie / velocidad  # segundos
-    tiempo = tiempo/60  # minutos
+    # pasar a minutos y segundos
+    min = int(tiempo // 60)
+    seg = int(tiempo % 60)
 
-    return tiempo
+    return min, seg
 
 
 # VENTANA 3 --------------------------------------------------------------------
 def ventana3(root, superficie):    
 
     vent3 = Toplevel(root)
-    vent3.geometry("560x690")
+    vent3.title('Tiempo de limpieza')
+    vent3.geometry("600x400")
 
     # widget texto
     tiempo = calcular_tiempo_limpieza(superficie)
-    p1 = Label(vent3, text=(f"Tiempo final de limpieza: {tiempo} minutos."))
+    p1 = Label(vent3, text=(f"Tiempo de limpieza necesario: {tiempo[0]} minutos y {tiempo[1]} segundos."))
     p1.pack(pady=20)
     p1.config(font=15)
 
