@@ -1,5 +1,4 @@
 from tkinter import *
-#from visualizacion import Ventana
 
 
 # VENTANA 1 --------------------------------------------------------------------
