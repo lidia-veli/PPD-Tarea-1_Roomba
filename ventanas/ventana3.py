@@ -1,7 +1,8 @@
 from tkinter import *
 
 
-def ventana3(root, superficie):    
+def ventana3(root, superficie):
+    '''Funcion que crea la ventana de visualización de tiempo de limpieza.'''   
 
     vent3 = Toplevel(root)
     vent3.title('Tiempo de limpieza')
@@ -16,6 +17,7 @@ def ventana3(root, superficie):
     # widget boton
     boton = Button(vent3, text="Terminar", command=lambda: root.destroy())
     boton.pack(pady=30)
+
 
 
 def calcular_tiempo_limpieza(superficie):

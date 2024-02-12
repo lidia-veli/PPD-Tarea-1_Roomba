@@ -20,6 +20,7 @@ def ventana1(root, zonas, superficie):
     boton.pack(pady=15)
 
 
+
 def calcular_superf_limpiar(zonas):
     '''Funcion que calcula la superficie total de la habitacion que se puede limpiar.'''
     superficie = 0  # en cm^2

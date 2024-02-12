@@ -3,6 +3,7 @@ from ventanas.ventana3 import ventana3
 
 
 def ventana2(root, zonas, superficie):
+    '''Funcion que crea la ventana de visualización de la habitación.'''
 
     vent2 = Toplevel(root)
     vent2.title('Visualización Habitación')
